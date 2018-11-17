@@ -43,7 +43,7 @@ func choose_direction():
 		vertical_direction()
 		return
 
-	if can_move_horizontally && should_move_horizontally
+	if can_move_horizontally && should_move_horizontally:
 		horizontal_direction()
 		return
 
