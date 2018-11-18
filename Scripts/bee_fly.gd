@@ -4,7 +4,7 @@ export (int) var speed = 200
 
 var velocity = Vector2()
 var player_position = Vector2()
-var can_move_horizontal = true
+var can_move_horizontally = true
 var can_move_vertically = true
 
 func set_player_position(x,y):
@@ -19,14 +19,14 @@ func movement_y(y):
 	velocity.x = 0
 	velocity.y = y
 	
-func vertical_direction():
+func vertical_direction(current_position):
 	if player_position.y <  current_position.y:
 		movement_y(-1)
 
 	if player_position.y > current_position.y:
 		movement_y(1)
 
-func horizontal_direction():
+func horizontal_direction(current_position):
 	if player_position.x <  current_position.x:
 		movement_x(-1)
 
@@ -36,15 +36,15 @@ func horizontal_direction():
 func choose_direction():
 	var current_position = get_position()
 
-	should_move_vertically = player_position.y != current_position.y
-	should_move_horizontally = player_position.x != current_position.x
+	var should_move_vertically = player_position.y != current_position.y
+	var should_move_horizontally = player_position.x != current_position.x
 	
 	if can_move_vertically && should_move_vertically:
-		vertical_direction()
+		vertical_direction(current_position)
 		return
 
 	if can_move_horizontally && should_move_horizontally:
-		horizontal_direction()
+		horizontal_direction(current_position)
 		return
 
 func move():
