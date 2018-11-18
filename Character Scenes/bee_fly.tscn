@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/bee_fly.gd" type="Script" id=1]
-[ext_resource path="res://Art/icon.png" type="Texture" id=2]
+[ext_resource path="res://Art/beehorse_0__1_.png" type="Texture" id=2]
+[ext_resource path="res://Art/beehorse_0__2_.png" type="Texture" id=3]
 
+[sub_resource type="SpriteFrames" id=1]
 
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
 
-
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 4.20367
+height = 20.0
 
-[node name="Bee" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -20,13 +33,18 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 speed = 200
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 72.6515, 81.7329 )
-texture = ExtResource( 2 )
+position = Vector2( 454.073, 319.319 )
+frames = SubResource( 1 )
+animation = "move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+position = Vector2( 434.096, 341.905 )
+rotation = -0.335103
+scale = Vector2( 39.6482, 27.8688 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 

@@ -2,14 +2,12 @@
 
 [ext_resource path="res://Scripts/bear_crawl.gd" type="Script" id=1]
 [ext_resource path="res://Art/bear-stand.png" type="Texture" id=2]
-[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=3]
-[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=4]
-[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=5]
-[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=6]
+[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=3]
+[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=4]
+[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=5]
+[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=6]
 
-
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -19,26 +17,26 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walk down",
+"name": "walk right",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "walk up",
+"name": "walk left",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "walk left",
+"name": "walk up",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "walk right",
+"name": "walk down",
 "speed": 4.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -55,12 +53,12 @@ speed = 200
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( 300.403, 333.602 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 
