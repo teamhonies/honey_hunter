@@ -1,16 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=2]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
-[node name="BearSpider" parent="." index="0" instance=ExtResource( 1 )]
+[node name="bee_horse" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 750.68, 324.921 )
+position = Vector2( 192.174, 264.667 )
 
-[node name="bee_horse" parent="." index="1" instance=ExtResource( 2 )]
+[node name="bear_spider" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 203.378, 236.656 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[connection signal="send_position" from="bear_spider" to="bee_horse" method="_on_bear_spider_send_position"]
 
 

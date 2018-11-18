@@ -8,10 +8,9 @@ var can_move_horizontally = true
 var can_move_vertically = true
 var facing_right
 
-func set_player_position(x,y):
-    player_position.x = x
-    player_position.y = y
-
+func _on_bear_spider_send_position(position):
+    player_position = position
+    
 func movement_x(x):
     velocity.x = x
     velocity.y = 0

@@ -4,6 +4,8 @@ export (int) var speed = 200
 
 var velocity = Vector2()
 
+signal send_position(my_position)
+
 func movement(x,y):
     velocity.x = x
     velocity.y = y
@@ -29,6 +31,7 @@ func get_input():
 
 func _physics_process(delta):
     move_and_slide(velocity)
+    emit_signal("send_position", get_position())
 
 func _process(delta):
     get_input()
