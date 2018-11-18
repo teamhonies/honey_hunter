@@ -4,8 +4,8 @@
 [ext_resource path="res://Art/bear-stand.png" type="Texture" id=2]
 [ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=3]
 [ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=4]
-[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=5]
-[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=6]
+[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=5]
+[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -27,38 +27,43 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "walk up",
+"name": "walk down",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "walk down",
+"name": "walk up",
 "speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 8.84958, 10 )
 
-[node name="BearSpider" type="KinematicBody2D" index="0"]
+[node name="bear_spider" type="KinematicBody2D"]
 
+position = Vector2( 465.339, 222.374 )
+scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 speed = 200
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 300.403, 333.602 )
+position = Vector2( 11.6761, 12.3943 )
 frames = SubResource( 1 )
 animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 17.3269, 2.88086 )
+scale = Vector2( 16.8674, 24.4588 )
 shape = SubResource( 2 )
 
 
