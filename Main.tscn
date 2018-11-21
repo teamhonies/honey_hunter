@@ -3,7 +3,7 @@
 [ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=2]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 [node name="bee_horse" parent="." index="0" instance=ExtResource( 1 )]
 
