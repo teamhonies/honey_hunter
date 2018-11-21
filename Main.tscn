@@ -5,14 +5,41 @@
 
 [node name="Main" type="Node" index="0"]
 
-[node name="bee_horse" parent="." index="0" instance=ExtResource( 1 )]
+[node name="Node" type="Node" parent="." index="0"]
 
-position = Vector2( 192.174, 264.667 )
+editor/display_folded = true
+
+[node name="bee_horse" parent="Node" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 805.563, 432.117 )
+scale = Vector2( 0.1, 0.1 )
+z_index = -100
+
+[node name="bee_horse2" parent="Node" index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 822.319, 214.279 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="bee_horse3" parent="Node" index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 678.38, 147.769 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="bee_horse4" parent="Node" index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 620.642, 401.703 )
+scale = Vector2( 0.1, 0.1 )
 
 [node name="bear_spider" parent="." index="1" instance=ExtResource( 2 )]
 
-_sections_unfolded = [ "Transform", "Z Index" ]
+scale = Vector2( 0.1, 0.1 )
 
-[connection signal="send_position" from="bear_spider" to="bee_horse" method="_on_bear_spider_send_position"]
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse" method="_on_bear_spider_send_position"]
+
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse4" method="_on_bear_spider_send_position"]
+
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse3" method="_on_bear_spider_send_position"]
+
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
 
 

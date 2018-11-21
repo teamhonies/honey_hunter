@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scripts/bear_crawl.gd" type="Script" id=1]
 [ext_resource path="res://Art/bear-stand.png" type="Texture" id=2]
-[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=3]
-[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=4]
-[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=5]
-[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=6]
+[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=3]
+[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=4]
+[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=5]
+[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -17,22 +17,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walk right",
+"name": "walk up",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "walk left",
+"name": "walk down",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "walk down",
+"name": "walk left",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "walk up",
+"name": "walk right",
 "speed": 4.0
 } ]
 
@@ -41,16 +41,15 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 8.84958, 10 )
 
-[node name="bear_spider" type="KinematicBody2D" index="0"]
+[node name="bear_spider" type="KinematicBody2D"]
 
 position = Vector2( 465.339, 222.374 )
-scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
 speed = 200
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]

@@ -7,6 +7,7 @@ var player_position = Vector2()
 var can_move_horizontally = true
 var can_move_vertically = true
 var facing_right
+var flipped = false
 
 func _on_bear_spider_send_position(position):
     player_position = position
@@ -50,11 +51,16 @@ func move():
     choose_direction()
     change_state(MOVE)
     
-    if facing_right:
-        set_scale(Vector2(-1,1))
-    else:
-        set_scale(Vector2(1,1))
-    
+    if facing_right && !flipped:
+        #flipped = true
+        #get_node("AnimatedSprite").flip_h(flipped)
+        print("fuck you")
+        
+    if !facing_right && flipped:
+        #flipped = false
+        #get_node("AnimatedSprite").flip_h(flipped)
+        print("fuck you, too")
+        
     velocity = velocity.normalized() * speed
 
 func _process(delta):
