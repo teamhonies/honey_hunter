@@ -3,7 +3,7 @@
 [ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=2]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="Node" type="Node" parent="." index="0"]
 
@@ -34,12 +34,12 @@ scale = Vector2( 0.1, 0.1 )
 
 scale = Vector2( 0.1, 0.1 )
 
-[connection signal="send_position" from="bear_spider" to="Node/bee_horse" method="_on_bear_spider_send_position"]
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse3" method="_on_bear_spider_send_position"]
 
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse4" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="bear_spider" to="Node/bee_horse3" method="_on_bear_spider_send_position"]
-
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
+
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse" method="_on_bear_spider_send_position"]
 
 
