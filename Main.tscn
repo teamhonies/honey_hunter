@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object Scenes/honey dripper.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node"]
 
@@ -11,22 +12,26 @@ editor/display_folded = true
 
 [node name="bee_horse" parent="Node" index="0" instance=ExtResource( 1 )]
 
+visible = false
 position = Vector2( 805.563, 432.117 )
 scale = Vector2( 0.1, 0.1 )
 z_index = -100
 
 [node name="bee_horse2" parent="Node" index="1" instance=ExtResource( 1 )]
 
+visible = false
 position = Vector2( 822.319, 214.279 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="bee_horse3" parent="Node" index="2" instance=ExtResource( 1 )]
 
+visible = false
 position = Vector2( 678.38, 147.769 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="bee_horse4" parent="Node" index="3" instance=ExtResource( 1 )]
 
+visible = false
 position = Vector2( 620.642, 401.703 )
 scale = Vector2( 0.1, 0.1 )
 
@@ -34,12 +39,18 @@ scale = Vector2( 0.1, 0.1 )
 
 scale = Vector2( 0.1, 0.1 )
 
+[node name="honey dripper" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 375.102, 158.861 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse3" method="_on_bear_spider_send_position"]
 
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse4" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
-
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse" method="_on_bear_spider_send_position"]
+
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
 
 
