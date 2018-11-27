@@ -10,8 +10,6 @@ func _ready():
     get_node("Area2D").connect("body_entered", self, "_add_honey")
     
 func _add_honey(body):
-    print(body.get_name())
-    
     if body.get_name() != player_body:
         pass
         
