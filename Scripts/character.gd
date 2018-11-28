@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 enum {IDLE, LEFT, RIGHT, UP, DOWN, MOVE, ATTACK}
 

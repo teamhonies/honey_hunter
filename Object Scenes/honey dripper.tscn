@@ -21,7 +21,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 10.6629, 9.89549 )
 
-[node name="honey dripper" type="Node2D"]
+[node name="honey dripper" type="Node2D" index="0"]
 
 position = Vector2( 565.66, 218.224 )
 script = ExtResource( 1 )
@@ -33,6 +33,7 @@ animation = "default"
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

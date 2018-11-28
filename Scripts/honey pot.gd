@@ -4,22 +4,19 @@ var honey_added = 0
 var honey_total = 4
 
 var animation_name = "default"
-var player_body = "bear_spider"
+var player_body = "Player"
 
 func _ready():
-    get_node("Area2D").connect("body_entered", self, "_add_honey")
+    get_node("Area2D").connect("area_entered", self, "_add_honey")
     
 func _add_honey(body):
-    if body.get_name() != player_body:
-        pass
-        
-    if honey_added == honey_total:
-        pass
-        
+    if body.get_name() != player_body || honey_added == honey_total:
+        return
+    
     var owner = get_owner()
     if owner == null || !owner.has_honey:
-        pass
-        
+        return 
+    
     honey_added = honey_added + 1
     
     var update_frame = (honey_total / 2 == honey_added) || (honey_total == honey_added)
@@ -29,4 +26,3 @@ func _add_honey(body):
             animation.frame = animation.frame + 1
             
     owner.has_honey = false
-        
