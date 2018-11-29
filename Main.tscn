@@ -9,9 +9,12 @@
 
 [node name="Main" type="Node" index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="GameComponents" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="Enemies" type="Node2D" parent="GameComponents" index="0"]
 
@@ -74,15 +77,19 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
+[node name="Position2D" type="Position2D" parent="." index="4"]
+
+position = Vector2( 182.524, 524.021 )
+
 [connection signal="die" from="GameComponents/Player" to="." method="_on_Player_die"]
+
+[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse" method="_on_bear_spider_send_position"]
 
 [connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse3" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse2" method="_on_bear_spider_send_position"]
-
 [connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse4" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse" method="_on_bear_spider_send_position"]
+[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse2" method="_on_bear_spider_send_position"]
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 

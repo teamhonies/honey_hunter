@@ -17,6 +17,7 @@ func _on_Player_die():
 func new_game():
     score = 0
     $StartTimer.start()
+    $GameComponents/Player.position = $Position2D.position
     $HUD.update_score(score)
     $HUD.show_message("Get Ready")
 
