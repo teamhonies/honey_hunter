@@ -36,10 +36,10 @@ scale = Vector2( 0.1, 0.1 )
 
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="bear_spider" to="Node/bee_horse4" method="_on_bear_spider_send_position"]
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
 
 [connection signal="send_position" from="bear_spider" to="Node/bee_horse3" method="_on_bear_spider_send_position"]
 
-[connection signal="send_position" from="bear_spider" to="Node/bee_horse2" method="_on_bear_spider_send_position"]
+[connection signal="send_position" from="bear_spider" to="Node/bee_horse4" method="_on_bear_spider_send_position"]
 
 
