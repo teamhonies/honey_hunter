@@ -8,6 +8,7 @@ var can_move_horizontally = true
 var can_move_vertically = true
 var facing_right
 var flipped = false
+var screensize
 
 func _on_bear_spider_send_position(position):
     player_position = position
@@ -64,12 +65,13 @@ func move():
     velocity = velocity.normalized() * speed
 
 func _process(delta):
-    play_animation()
-
-func _physics_process(delta):
     move()
-    move_and_slide(velocity)
+    play_animation("")
+    position += velocity * delta
+    position.x = clamp(position.x, 0, screensize.x)
+    position.y = clamp(position.y, 0, screensize.y)
     
 func _ready():
     set_animator("AnimatedSprite")
     change_state(IDLE)
+    screensize = get_viewport_rect().size

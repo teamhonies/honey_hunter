@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 enum {IDLE, LEFT, RIGHT, UP, DOWN, MOVE, ATTACK}
 
@@ -23,9 +23,9 @@ func change_state(state):
         ATTACK:
             new_animation = 'attack'
 
-func play_animation():
+func play_animation(animation_modifier):
     if new_animation != animation:
-        animation = new_animation
+        animation = animation_modifier + new_animation
         animator.play(animation)
 
 func set_animator(animator_name):
