@@ -20,7 +20,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 67.4604, 95.333 )
 
-[node name="honey pot" type="Node2D"]
+[node name="honey pot" type="Node2D" index="0"]
 
 position = Vector2( 285.562, 214.908 )
 script = ExtResource( 1 )

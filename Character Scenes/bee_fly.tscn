@@ -23,7 +23,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 197.845, 200.859 )
 
-[node name="bee_horse" type="KinematicBody2D" index="0"]
+[node name="bee_horse" type="KinematicBody2D"]
 
 position = Vector2( 399.451, 415.923 )
 input_pickable = false

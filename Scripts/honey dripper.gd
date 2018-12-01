@@ -8,9 +8,9 @@ var player_body = "Player"
 
 signal honey_gone
 
-func _ready():
+func reset():
+    honey_scale = 4
     honey_left = honey_scale
-    get_node("Area2D").connect("body_entered", self, "_collect_honey")
     
 func _collect_honey(body):
     if body.get_name() != player_body:
@@ -38,3 +38,7 @@ func _collect_honey(body):
 func _process(delta):
     if !get_owner().has_honey && honey_left > 0:
         $honeydrip.show()
+
+func _ready():
+    honey_left = honey_scale
+    get_node("Area2D").connect("body_entered", self, "_collect_honey")

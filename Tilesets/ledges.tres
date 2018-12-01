@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=2]
+[gd_resource type="TileSet" load_steps=4 format=2]
 
 [ext_resource path="res://Art/ledge.png" type="Texture" id=1]
+[ext_resource path="res://Art/hexagon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,5 +24,14 @@ extents = Vector2( 63.664, 16.0115 )
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 64, 16 )
 } ]
+1/name = "hexagon"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 238, 317 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 119, 158.5 )
+1/navigation_offset = Vector2( 119, 158.5 )
+1/shapes = [  ]
 _sections_unfolded = [ "0", "Resource" ]
 

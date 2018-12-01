@@ -8,8 +8,9 @@ var player_body = "Player"
 
 signal honey_stashed
 
-func _ready():
-    get_node("Area2D").connect("body_entered", self, "_add_honey")
+func reset():
+    honey_added = 0
+    honey_total = 4
     
 func _add_honey(body):
     if body.get_name() != player_body || honey_added == honey_total:
@@ -29,3 +30,6 @@ func _add_honey(body):
     
     owner.has_honey = false
     emit_signal("honey_stashed")
+
+func _ready():
+    get_node("Area2D").connect("body_entered", self, "_add_honey")

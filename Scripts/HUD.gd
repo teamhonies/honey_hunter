@@ -7,10 +7,11 @@ func show_message(text):
     $MessageLabel.show()
     $MessageTimer.start()
     
-func show_game_over():
-    show_message("Game Over")
+func show_game_over(message):
+    show_message(message)
     yield($MessageTimer, "timeout")
     $StartButton.show()
+    
     $MessageLabel.text = "Dodge the\nCreeps!"
     $MessageLabel.show()
     
