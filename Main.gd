@@ -14,14 +14,12 @@ func _honey_stashed():
 
 func _honey_gone():
     honey_gone = true
-    
 
 func _on_HUD_start_game():
     $HUD.update_score(score)
     $HUD.show_message("Get Ready")
 
 func _on_Player_die():
-    
     $GameComponents.hide()
     $ScoreTimer.stop()
     $HUD.show_game_over()
@@ -47,3 +45,9 @@ func _on_ScoreTimer_timeout():
     
 func _ready():
     $GameComponents.hide()
+
+func _player_killed():
+    $GameComponents.hide()
+    $ScoreTimer.stop()
+    $HUD.show_game_over()
+    $HUD.update_score(score)

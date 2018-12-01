@@ -6,7 +6,6 @@ var velocity = Vector2()
 var screensize
 
 signal die
-signal send_position(my_position)
 
 func movement(x,y):
     velocity.x = x
@@ -40,14 +39,12 @@ func _process(delta):
     
     play_animation(animation_modifier)
     velocity = velocity.normalized() * speed
-    emit_signal("send_position", get_position())
 
 func _physics_process(delta):
     var collision = move_and_collide(velocity)
     if collision && "bee_horse" in collision.collider.name:
         emit_signal("die")
         return
-    emit_signal("send_position", get_position())
 
 func _ready():
     set_animator("AnimatedSprite")

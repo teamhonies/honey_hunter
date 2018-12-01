@@ -8,7 +8,7 @@
 [ext_resource path="res://Object Scenes/TileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HUD Scene/HUD.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -21,26 +21,28 @@ position = Vector2( -1367.98, 8.13483 )
 
 [node name="bee_horse" parent="GameComponents/Enemies" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 1419.04, 280.605 )
+position = Vector2( 1400.49, 263.745 )
 scale = Vector2( 0.1, 0.1 )
 z_index = -100
 
 [node name="bee_horse3" parent="GameComponents/Enemies" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 1421.97, 75.7737 )
+position = Vector2( 1394.45, 117.059 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="bee_horse2" parent="GameComponents/Enemies" index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 2347.31, 438.619 )
+position = Vector2( 2345.62, 388.038 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="bee_horse4" parent="GameComponents/Enemies" index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 2292.69, 129.207 )
+position = Vector2( 1987.64, 115.445 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Objects" type="Node2D" parent="GameComponents" index="1"]
+
+editor/display_folded = true
 
 [node name="honey dripper" parent="GameComponents/Objects" index="0" instance=ExtResource( 3 )]
 
@@ -56,7 +58,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="GameComponents" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 438.363, 247.664 )
+position = Vector2( 127.952, 520.449 )
 scale = Vector2( 0.1, 0.1 )
 collision_layer = 2
 
@@ -87,19 +89,19 @@ autostart = false
 
 position = Vector2( 62.3537, 525 )
 
+[connection signal="player_killed" from="GameComponents/Enemies/bee_horse" to="." method="_player_killed"]
+
+[connection signal="player_killed" from="GameComponents/Enemies/bee_horse3" to="." method="_player_killed"]
+
+[connection signal="player_killed" from="GameComponents/Enemies/bee_horse2" to="." method="_player_killed"]
+
+[connection signal="player_killed" from="GameComponents/Enemies/bee_horse4" to="." method="_player_killed"]
+
 [connection signal="honey_gone" from="GameComponents/Objects/honey dripper" to="." method="_honey_gone"]
 
 [connection signal="honey_stashed" from="GameComponents/Objects/honey pot" to="." method="_honey_stashed"]
 
 [connection signal="die" from="GameComponents/Player" to="." method="_on_Player_die"]
-
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse2" method="_on_bear_spider_send_position"]
-
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse" method="_on_bear_spider_send_position"]
-
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse3" method="_on_bear_spider_send_position"]
-
-[connection signal="send_position" from="GameComponents/Player" to="GameComponents/Enemies/bee_horse4" method="_on_bear_spider_send_position"]
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 
