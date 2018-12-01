@@ -59,4 +59,4 @@ func _player_killed():
     
 func _process(delta):
     if Input.is_action_pressed('ui_cancel'):
-        new_game()
+        _game_over("Why you quitting?")

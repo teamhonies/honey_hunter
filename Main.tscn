@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Character Scenes/bee_fly.tscn" type="PackedScene" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Object Scenes/honey pot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Character Scenes/bear_crawl.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Object Scenes/TileMap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://HUD Scene/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object Scenes/TileMap_Border.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD Scene/HUD.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node"]
 
@@ -18,6 +19,7 @@ editor/display_folded = true
 
 [node name="Enemies" type="Node2D" parent="GameComponents" index="0"]
 
+editor/display_folded = true
 position = Vector2( -1367.98, 8.13483 )
 
 [node name="bee_horse" parent="GameComponents/Enemies" index="0" instance=ExtResource( 2 )]
@@ -42,6 +44,7 @@ scale = Vector2( 0.1, 0.1 )
 
 [node name="Objects" type="Node2D" parent="GameComponents" index="1"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
 [node name="honey dripper" parent="GameComponents/Objects" index="0" instance=ExtResource( 3 )]
@@ -64,27 +67,27 @@ collision_layer = 2
 
 [node name="TileMap" parent="GameComponents" index="3" instance=ExtResource( 6 )]
 
-collision_layer = 31
-collision_mask = 31
-occluder_light_mask = 3
+[node name="TileMap Border" parent="." index="1" instance=ExtResource( 7 )]
 
-[node name="HUD" parent="." index="1" instance=ExtResource( 7 )]
+visible = false
 
-[node name="ScoreTimer" type="Timer" parent="." index="2"]
+[node name="HUD" parent="." index="2" instance=ExtResource( 8 )]
+
+[node name="ScoreTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="StartTimer" type="Timer" parent="." index="3"]
+[node name="StartTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Position2D" type="Position2D" parent="." index="4"]
+[node name="Position2D" type="Position2D" parent="." index="5"]
 
 position = Vector2( 62.3537, 525 )
 
