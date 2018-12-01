@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Scripts/bear_crawl.gd" type="Script" id=1]
 [ext_resource path="res://Art/bear-stand.png" type="Texture" id=2]
-[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=3]
-[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=4]
-[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=5]
-[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=6]
-[ext_resource path="res://Art/Honeybear_stand.png" type="Texture" id=7]
-[ext_resource path="res://Art/Honeybear_side02.png" type="Texture" id=8]
-[ext_resource path="res://Art/Honeybear_side01.png" type="Texture" id=9]
-[ext_resource path="res://Art/Honeybear_up02.png" type="Texture" id=10]
-[ext_resource path="res://Art/Honeybear_up01.png" type="Texture" id=11]
+[ext_resource path="res://Art/bear_side0__1_.png" type="Texture" id=3]
+[ext_resource path="res://Art/bear_side0__2_.png" type="Texture" id=4]
+[ext_resource path="res://Art/Honeybear_stand.png" type="Texture" id=5]
+[ext_resource path="res://Art/Honeybear_side01.png" type="Texture" id=6]
+[ext_resource path="res://Art/Honeybear_side02.png" type="Texture" id=7]
+[ext_resource path="res://Art/Honeybear_up01.png" type="Texture" id=8]
+[ext_resource path="res://Art/Honeybear_up02.png" type="Texture" id=9]
+[ext_resource path="res://Art/bear_up0__1_.png" type="Texture" id=10]
+[ext_resource path="res://Art/bear_up0__2_.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -27,64 +27,61 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walk down",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk up",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
-"loop": true,
 "name": "walk left",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "walk right",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "honey walk right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "honey walk left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "honey idle",
+"name": "honey walk right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "honey walk up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk up",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk right",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk down",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "honey walk down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "honey walk up",
+"name": "honey idle",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="bear_spider" type="Area2D"]
+[node name="bear_spider" type="KinematicBody2D"]
 
 position = Vector2( 465.339, 222.374 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
-speed = 200
+speed = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

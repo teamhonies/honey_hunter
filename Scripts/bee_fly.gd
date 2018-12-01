@@ -53,23 +53,18 @@ func move():
     change_state(MOVE)
     
     if facing_right && !flipped:
-        #flipped = true
-        #get_node("AnimatedSprite").flip_h(flipped)
-        print("fuck you")
+        flipped = true
+        get_node("AnimatedSprite").flip_h(flipped)
         
     if !facing_right && flipped:
-        #flipped = false
-        #get_node("AnimatedSprite").flip_h(flipped)
-        print("fuck you, too")
+        flipped = false
+        get_node("AnimatedSprite").flip_h(flipped)
         
     velocity = velocity.normalized() * speed
 
 func _process(delta):
     move()
     play_animation("")
-    position += velocity * delta
-    position.x = clamp(position.x, 0, screensize.x)
-    position.y = clamp(position.y, 0, screensize.y)
     
 func _ready():
     set_animator("AnimatedSprite")

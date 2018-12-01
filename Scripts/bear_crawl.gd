@@ -1,17 +1,12 @@
 extends "res://Scripts/character.gd"
 
-export (int) var speed = 200
+export (int) var speed = 5
 
 var velocity = Vector2()
 var screensize
 
 signal die
 signal send_position(my_position)
-
-func _should_die(body):
-    if body.get_name() != "bee_horse":
-        return
-    emit_signal("die")
 
 func movement(x,y):
     velocity.x = x
@@ -44,13 +39,17 @@ func _process(delta):
         animation_modifier = "honey "
     
     play_animation(animation_modifier)
-    position += velocity * delta
-    position.x = clamp(position.x, 0, screensize.x)
-    position.y = clamp(position.y, 0, screensize.y)
+    velocity = velocity.normalized() * speed
+    emit_signal("send_position", get_position())
+
+func _physics_process(delta):
+    var collision = move_and_collide(velocity)
+    if collision && "bee_horse" in collision.collider.name:
+        emit_signal("die")
+        return
     emit_signal("send_position", get_position())
 
 func _ready():
-    connect("area_entered", self, "_should_die")
     set_animator("AnimatedSprite")
     change_state(IDLE)
     screensize = get_viewport_rect().size

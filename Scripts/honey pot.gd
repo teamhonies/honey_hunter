@@ -6,8 +6,10 @@ var honey_total = 4
 var animation_name = "default"
 var player_body = "Player"
 
+signal honey_stashed
+
 func _ready():
-    get_node("Area2D").connect("area_entered", self, "_add_honey")
+    get_node("Area2D").connect("body_entered", self, "_add_honey")
     
 func _add_honey(body):
     if body.get_name() != player_body || honey_added == honey_total:
@@ -24,5 +26,6 @@ func _add_honey(body):
         var animation = get_node("AnimatedSprite")
         if animation.frames.get_frame_count(animation_name) > animation.frame:
             animation.frame = animation.frame + 1
-            
+    
     owner.has_honey = false
+    emit_signal("honey_stashed")

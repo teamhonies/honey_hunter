@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/honey dripper.gd" type="Script" id=1]
 [ext_resource path="res://Art/honey_full.png" type="Texture" id=2]
 [ext_resource path="res://Art/honey_half.png" type="Texture" id=3]
 [ext_resource path="res://Art/honey_low.png" type="Texture" id=4]
 [ext_resource path="res://Art/honey_empty.png" type="Texture" id=5]
+[ext_resource path="res://Art/honeydrip.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -19,9 +20,9 @@ _sections_unfolded = [ "Resource" ]
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10.6629, 9.89549 )
+extents = Vector2( 3.65825, 4.58269 )
 
-[node name="honey dripper" type="Node2D" index="0"]
+[node name="honey dripper" type="Node2D"]
 
 position = Vector2( 565.66, 218.224 )
 script = ExtResource( 1 )
@@ -31,9 +32,15 @@ script = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "default"
 
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="honeydrip" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
+visible = false
+position = Vector2( -88.2697, 119.533 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -44,7 +51,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 4.20783, 15.6351 )
+position = Vector2( -93.06, 121.86 )
 scale = Vector2( 9.82893, 11.099 )
 shape = SubResource( 2 )
 
