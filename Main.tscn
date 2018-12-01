@@ -9,7 +9,7 @@
 [ext_resource path="res://Object Scenes/TileMap_Border.tscn" type="PackedScene" id=7]
 [ext_resource path="res://HUD Scene/HUD.tscn" type="PackedScene" id=8]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
